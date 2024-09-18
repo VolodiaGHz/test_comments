@@ -1,0 +1,1 @@
+select id,body,"postId",username,to_char("updatedAt",'dd-MM-yyyy HH24:mi:ss') as updatedAt from public.users

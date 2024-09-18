@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Коментарі</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        .comments {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .comments td, .comments th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .comments tr:nth-child(even){background-color: #f2f2f2;}
+
+        .comments tr:hover {background-color: #ddd;}
+
+        .comments th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #0077C8;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div style="width: 100%; display: flex; justify-content: center">
+    <table class="comments" >
+        <tr >
+            <th>Коментар</th>
+            <th>ID посту</th>
+            <th>Користувач</th>
+            <th>Дата</th>
+        </tr>
+        <tr th:each="comment: ${comments}">
+            <td  th:text="${comment.body}"/>
+            <td  th:text="${comment.postId}"/>
+            <td><span th:text="${comment.username}"/></td>
+            <td  th:text="${comment.updatedAt}"/>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
